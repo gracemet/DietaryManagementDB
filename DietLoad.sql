@@ -1,5 +1,6 @@
 USE DIET_MANAGEMENT;
 
+# PATIENT
 INSERT INTO PATIENT(Fname, Minit, Lname, P_id) VALUES
 ("Bryce", "A", "Hall", 1);
 
@@ -12,6 +13,9 @@ INSERT INTO PATIENT(Fname, Minit, Lname, P_id) VALUES
 INSERT INTO PATIENT(Fname, Minit, Lname, P_id) VALUES
 ("Grace", "A", "Metri", 4);
 
+
+
+# INGREDIENT
 INSERT INTO INGREDIENT(Ing_id, Ing_name) VALUES
 (1, "Peanut");
 
@@ -22,6 +26,17 @@ INSERT INTO INGREDIENT(Ing_id, Ing_name) VALUES
 (3, "Meat");
 
 
+# FOOD
+INSERT INTO FOOD (F_id, Food_Name, Prepared) VALUES
+(1, "Ham sandwich", true);
+
+
+
+
+# ASSOCIATIVE TABLES
+
+
+# PI
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
 (3, 1);
 
@@ -36,3 +51,15 @@ INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
 (4, 3);
+
+
+
+# FI 
+INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
+(1, 1);
+
+INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
+(1, 2);
+
+INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
+(1, 3);
