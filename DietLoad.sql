@@ -16,19 +16,19 @@ INSERT INTO PATIENT(Fname, Minit, Lname, P_id) VALUES
 
 
 # INGREDIENT
-INSERT INTO INGREDIENT(Ing_id, Ing_name) VALUES
-(1, "Peanut");
+INSERT INTO INGREDIENT(Ing_id) VALUES
+("Peanut");
 
-INSERT INTO INGREDIENT(Ing_id, Ing_name) VALUES
-(2, "Banana");
+INSERT INTO INGREDIENT(Ing_id) VALUES
+("Banana");
 
-INSERT INTO INGREDIENT(Ing_id, Ing_name) VALUES
-(3, "Meat");
+INSERT INTO INGREDIENT(Ing_id) VALUES
+("Meat");
 
 
 # FOOD
-INSERT INTO FOOD (F_id, Food_Name, Prepared) VALUES
-(1, "Ham sandwich", true);
+INSERT INTO FOOD (F_id, Prepared) VALUES
+("Ham sandwich", true);
 
 
 
@@ -38,28 +38,28 @@ INSERT INTO FOOD (F_id, Food_Name, Prepared) VALUES
 
 # PI
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(3, 1);
+(3, "Peanut");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(3, 2);
+(3, "Banana");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(3, 3);
+(3, "Meat");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(2, 1);
+(2, "Peanut");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(4, 3);
+(4, "Meat");
 
 
 
 # FI 
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-(1, 1);
+("Ham sandwich", "Peanut");
 
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-(1, 2);
+("Ham sandwich", "Banana");
 
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-(1, 3);
+("Ham sandwich", "Meat");
