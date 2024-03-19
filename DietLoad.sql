@@ -16,20 +16,51 @@ INSERT INTO PATIENT(Fname, Minit, Lname, P_id) VALUES
 
 
 # INGREDIENT
-INSERT INTO INGREDIENT(Ing_id) VALUES
-("Peanut");
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Salt"); 
 
-INSERT INTO INGREDIENT(Ing_id) VALUES
-("Banana");
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Sliced Ham"); 
 
-INSERT INTO INGREDIENT(Ing_id) VALUES
-("Meat");
+INSERT INTO INGREDIENT(Ing_name) VALUES ("White Bread"); 
 
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Cheese"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Ground Turkey"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Tomato"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Onion"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Kidney Bean"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Garlic"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Chili Powder"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Paprika"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Oregano"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Cayenne Pepper"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Cumin"); 
+
+INSERT INTO INGREDIENT(Ing_name) VALUES ("Black Pepper"); 
 
 # FOOD
 INSERT INTO FOOD (F_id, Prepared) VALUES
 ("Ham sandwich", true);
 
+INSERT INTO FOOD (Food_Name, Prepared) VALUES
+("Turkey Chili", true);
+
+INSERT INTO FOOD (Food_Name, Prepared) VALUES
+("Cheeseburger", false);
+
+INSERT INTO FOOD (Food_Name, Prepared) VALUES
+("Greek Salad", true);
+
+INSERT INTO FOOD (Food_Name, Prepared) VALUES
+("Roast Beef", false);
 
 
 
@@ -38,28 +69,28 @@ INSERT INTO FOOD (F_id, Prepared) VALUES
 
 # PI
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(3, "Peanut");
+(3, "Tomato");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(3, "Banana");
+(3, "Oregano");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(3, "Meat");
+(3, "Kidney Bean");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(2, "Peanut");
+(2, "Tomato");
 
 INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES
-(4, "Meat");
+(4, "Chili Pepper");
 
 
 
 # FI 
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-("Ham sandwich", "Peanut");
+("Turkey Chili", "Ground Turkey");
 
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-("Ham sandwich", "Banana");
+("Turkey Chili", "Chili Pepper");
 
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-("Ham sandwich", "Meat");
+("Turkey Chili", "Tomato");
