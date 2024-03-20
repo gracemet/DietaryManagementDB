@@ -1,0 +1,107 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    cursor: url('Images/pawDefault.png'), auto;
+    user-select: none;
+
+
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: white;
+    color: black;
+
+    -ms-overflow-style: none;
+    /* Hiding scrollbar for Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Hiding scrollbar for Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    /* Hiding scrollbar for Safari/Chrome */
+    display: none;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #003459;
+    position: relative;
+    width: 100%;
+    font-size: 34px;
+    display: block;
+    text-align: center;
+    min-width: 1080px;
+}
+
+#nav li {
+    width: auto;
+    /* display: inline-block; */
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    /* text-shadow: #FFFFFF 1px 0 10px; */
+
+}
+
+#nav li a {
+    display: block;
+    color: #FFFFFF;
+    padding: 14px 14px;
+    text-decoration: none;
+    /* text-shadow: #FFFFFF 1px 0 10px; */
+
+
+
+}
+
+#nav li a:hover {
+    border-radius: 15px;
+    background-color: rgba(240, 248, 255, .2);
+    text-decoration: underline;
+}
+
+
+table {
+    width: 50%;
+}
+
+table,
+table th,
+table td {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: rgb(37, 75, 128);
+    background-color: lightblue;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table th {
+    background-color: rgb(37, 75, 128);
+    color: white;
+}
+
+/* Button CSS */
+.bttn {
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border-style: none;
+    line-height: 20px;
+    padding: 10px 16px;
+    text-align: center;
+    vertical-align: baseline;
+    margin: 10px;
+
+    background-color: #1f2d56;
+    color: white;
+
+    cursor: url('Images/pawPoint.png'), auto;
+}
