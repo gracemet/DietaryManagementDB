@@ -16,15 +16,15 @@ CREATE TABLE PATIENT
 
 CREATE TABLE INGREDIENT
 (
-    Ing_id	CHAR(20) NOT NULL,
-    In_Stock	BOOLEAN,
+	Ing_id	CHAR(20) NOT NULL,
+    In_Stock	INT,
     PRIMARY KEY (Ing_id)
 );
 
 CREATE TABLE FOOD
 (
 	F_id		CHAR(20) NOT NULL,
-    Prepared		BOOLEAN,
+    Prepared		BOOL,
 	PRIMARY KEY (F_id)
 );
 
