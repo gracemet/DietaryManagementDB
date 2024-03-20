@@ -23,7 +23,7 @@ INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Salt", "200");
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Sliced Ham", "10"); 
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("White Bread", "50"); 
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Cheese", "24"); 
-INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Ground Turkey", "15"); 
+INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Turkey", "15"); 
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Tomato", "20"); 
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Onion", "10"); 
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ("Kidney Bean", "10"); 
