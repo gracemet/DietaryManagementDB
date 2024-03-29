@@ -3,7 +3,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    cursor: url('Images/pawDefault.png'), auto;
+    /* cursor: url('Images/pawDefault.png'), auto; */
     user-select: none;
 
 
@@ -54,15 +54,16 @@ body::-webkit-scrollbar {
     padding: 14px 14px;
     text-decoration: none;
     /* text-shadow: #FFFFFF 1px 0 10px; */
-
-
-
 }
 
 #nav li a:hover {
     border-radius: 15px;
     background-color: rgba(240, 248, 255, .2);
     text-decoration: underline;
+}
+
+#nav li:last-child {
+    float: right;
 }
 
 
@@ -103,5 +104,5 @@ table th {
     background-color: #1f2d56;
     color: white;
 
-    cursor: url('Images/pawPoint.png'), auto;
+    /* cursor: url('Images/pawPoint.png'), auto; */
 }
