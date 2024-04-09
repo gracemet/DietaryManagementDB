@@ -50,6 +50,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     die("Connection failed: " . $conn->connect_error);
   }
 
+  // Display Patient Allergy Table
   $sql = "SELECT Fname, Ing_id FROM PATIENT p, INGREDIENT i, PATIENT_INGREDIENT
   WHERE (p.P_id = PATIENT_INGREDIENT.PI_Pid 
   AND i.Ing_id = PATIENT_INGREDIENT.PI_Ingid);";
@@ -70,7 +71,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
   while($row = mysqli_fetch_assoc($result))
   {
     if(isset($table[$row["Fname"]])) {
-      $table[$row["Fname"]] = $table[$row["Fname"]] ."," . $row["Ing_id"];
+      $table[$row["Fname"]] = $table[$row["Fname"]] .", " . $row["Ing_id"];
     }
     else {
       $table += [$row["Fname"] => $row["Ing_id"]];
@@ -110,6 +111,8 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
 // echo "<br>";
 
   ?>
+
+  
 
 </body>
 
