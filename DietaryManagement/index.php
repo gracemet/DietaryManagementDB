@@ -87,6 +87,35 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
   echo "</table>";
   echo "<br>";
 
+  $sql = "SELECT Fname FROM PATIENT;";
+  $result = mysqli_query($conn, $sql);
+  
+  echo "<div id='wholeSelection'>";
+
+  echo "<div id='leftSelection'>";
+
+  echo "<div id='leftSelectDiv'>";
+
+  echo "<h1>PATIENT:</h1>";
+   
+  echo "</div>";
+  echo "</div>";
+
+  echo "<div id='rightSelection'>";
+  echo "<div id='divSelection'>";
+
+  echo "<select id='selectDrop' name='supplier'>;";
+  echo "<option value=''>--SELECTPATIENT--</option>";
+  $columns = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($columns)) {
+           foreach ($row as $value)
+           echo "<option value='$value'>$value</option>";
+       }
+  echo "</select>";
+  echo "</div>";
+  echo "</div>";
+  echo "</div>";
+
 
 
 
