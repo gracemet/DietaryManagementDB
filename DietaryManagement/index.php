@@ -51,7 +51,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
   }
 
   // Display Patient Allergy Table
-  $sql = "SELECT Fname, Ing_id FROM PATIENT p, INGREDIENT i, PATIENT_INGREDIENT
+  /*$sql = "SELECT Fname, Ing_id FROM PATIENT p, INGREDIENT i, PATIENT_INGREDIENT
   WHERE (p.P_id = PATIENT_INGREDIENT.PI_Pid 
   AND i.Ing_id = PATIENT_INGREDIENT.PI_Ingid);";
   $result = mysqli_query($conn, $sql);
@@ -85,7 +85,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     echo "</tr>";
   }
   echo "</table>";
-  echo "<br>";
+  echo "<br>"; */
 
   $sql = "SELECT Fname FROM PATIENT;";
   $result = mysqli_query($conn, $sql);
@@ -116,32 +116,43 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
   echo "</div>";
   echo "</div>";
 
+  echo "<div>";
+  $columns = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($columns)) {
+    foreach ($row as $value) {
+      echo "<div class='patient-info $value' 
+      style='padding: 30px;  
+           margin-top: 30px; 
+           width: 40%;
+           text-align: center;
+           margin-right: auto;
+           margin-left: auto;
+           border-radius: 15px;   
+           background:lightblue'>"; 
+      echo "$value's information."; // EDIT GENERATED ID CARD HERE
+      echo "</div>";
+    }
+}   
+  echo "</div>"; 
+  
+  echo "<script type='text/javascript'> 
+  $(document).ready(function() { 
+      $('select').on('change', function() { 
+          $(this).find('option:selected').each(function() { 
+              var name = $(this).attr('value'); 
+              if (name) { 
+                  $('.patient-info').not('.' + name).hide(); 
+                  $('.' + name).show(); 
+              } else { 
+                  $('.patient-info').hide(); 
+              } 
 
-
-
-//   echo "<table>";
-//   $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='PATIENT_INGREDIENT'";
-//   $columns = mysqli_query($conn, $sql);
-//   echo "<tr>";
-//   while ($row = mysqli_fetch_assoc($columns)) {
-//       foreach ($row as $value)
-//           echo "<th>" . $value . "</th>";
-//   }
-//   echo "</tr>";
-
-//   while ($row = mysqli_fetch_assoc($result)) {
-//       echo "<tr>";
-//       foreach ($row as $value) {
-//           echo "<td>" . $value . "</td>";
-//       }
-//       echo "</tr>";
-//   }
-// echo "</table>";
-// echo "<br>";
+          }); 
+      }).change(); 
+  }); 
+  </script>";
 
   ?>
-
-  
 
 </body>
 
