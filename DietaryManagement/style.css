@@ -23,6 +23,8 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+
+/* Nav Bar CSS */
 #nav {
     list-style-type: none;
     margin: 0;
@@ -64,6 +66,126 @@ body::-webkit-scrollbar {
 #nav li:last-child {
     float: right;
 }
+
+/* Nav Bar CSS END */
+
+/* Login CSS */
+#loginWrapper {
+    background-color: white;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #003459;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+#loginWrapper table, #loginWrapper th, #loginWrapper td{
+    border: none;
+    background-color: white;
+}
+
+.group {
+    position: relative;
+    padding: 20px 25% 20px;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.textbox {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #1f2d56;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #1f2d56;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.textbox::placeholder {
+    color: transparent;
+}
+
+.textbox:placeholder-shown ~ .label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #1f2d56;
+}
+
+.textbox:focus + .label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #045691;
+    font-weight: 700;
+}
+
+.textbox:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    color: #012f3b;
+    border-image: linear-gradient(to right, #152669, #43b5df);
+    border-image-slice: 1;
+}
+
+#togglePass {
+    position: absolute;
+    /* this works now after just including it in the 'group' div */
+    top: 38%;
+    left: 76%;
+  }
+
+  #PatientForm table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align:left;
+  }
+
+
+  .select-editable {
+    position:relative;
+    background-color:white;
+    border:solid grey 1px;
+    width:120px;
+    height:18px;
+}
+.select-editable select {
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size:14px;
+    border:none;
+    width:120px;
+    margin:0;
+}
+.select-editable input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100px;
+    padding:1px;
+    font-size:12px;
+    border:none;
+}
+.select-editable select:focus, .select-editable input:focus {
+    outline:none;
+}
+/* Login CSS END */
 
 
 table {
