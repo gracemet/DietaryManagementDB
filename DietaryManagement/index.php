@@ -39,6 +39,65 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
 
   <?php
 
+  function generateIDCard($name) {
+    $conn = $GLOBALS['conn'];
+    $sql = "SELECT P_id, Fname, Minit, Lname, Diet FROM PATIENT WHERE Fname='{$name}'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $pid = $row['P_id'];
+    $diet = $row['Diet'];
+    echo "<div class='column'> <b>{$row['Fname']} {$row['Minit']}. {$row['Lname']}</b>";
+
+    $sql = "SELECT PI_Ingid FROM PATIENT_INGREDIENT WHERE PI_Pid = '{$pid}';";
+    $result = mysqli_query($conn, $sql);
+    $size = mysqli_num_rows($result);
+
+    echo "<br>Allergies: ";
+    $aList = [];
+    while($row = mysqli_fetch_assoc($result))
+    {
+      array_push($aList, $row["PI_Ingid"]);
+    }
+
+    foreach($aList as $i => $x)
+    {
+      if($size != $i+1)
+        echo $x. ", ";
+      else
+        echo $x;
+    }
+
+    echo "<br><br>Meal Options: ";
+    $sql = "SELECT F_id FROM FOOD WHERE  (Prepared>1) 
+    AND F_id = ANY (SELECT DF_Fid FROM DIET_FOOD WHERE DF_Dname = '{$diet}') 
+    AND NOT F_id = ANY (SELECT FI_Fid FROM FOOD_INGREDIENT WHERE FI_Ingid = ANY (SELECT PI_Ingid FROM PATIENT_INGREDIENT WHERE PI_Pid = '{$pid}'));";
+    $result = mysqli_query($conn, $sql);
+    $size = mysqli_num_rows($result);
+    $aList = [];
+    while($row = mysqli_fetch_assoc($result))
+    {
+      array_push($aList, $row["F_id"]);
+    }
+
+    foreach($aList as $i => $x)
+    {
+      if($size != $i+1)
+        echo $x. ", ";
+      else
+        echo $x;
+    }
+
+    echo "</div>";
+    echo "<div class='column' style='float:right;'>
+    <b>Diet:</b>
+    {$diet}
+    </div>";
+
+
+
+  }
+
+
   $servername = "localhost";
   $user = "root";
   $pass = "";
@@ -90,16 +149,9 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
   $sql = "SELECT Fname FROM PATIENT;";
   $result = mysqli_query($conn, $sql);
   
-  echo "<div id='wholeSelection'>";
-
-  echo "<div id='leftSelection'>";
-
-  echo "<div id='leftSelectDiv'>";
-
+  echo "<div id='wholeSelection'> <div id='leftSelection'> <div id='leftSelectDiv'>";
   echo "<h1>PATIENT:</h1>";
-   
-  echo "</div>";
-  echo "</div>";
+  echo "</div> </div>";
 
   echo "<div id='rightSelection'>";
   echo "<div id='divSelection'>";
@@ -112,9 +164,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
            echo "<option value='$value'>$value</option>";
        }
   echo "</select>";
-  echo "</div>";
-  echo "</div>";
-  echo "</div>";
+  echo "</div> </div> </div>";
 
   echo "<div>";
   $columns = mysqli_query($conn, $sql);
@@ -124,33 +174,39 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
       style='padding: 30px;  
            margin-top: 30px; 
            width: 40%;
-           text-align: center;
+           text-align: left;
            margin-right: auto;
            margin-left: auto;
            border-radius: 15px;   
-           background:lightblue'>"; 
-      echo "$value's information."; // EDIT GENERATED ID CARD HERE
+           background:lightblue;
+           display:none;
+           '
+           >"; 
+      // echo "$value's information."; // EDIT GENERATED ID CARD HERE
+      generateIDCard($value);
+
       echo "</div>";
     }
 }   
   echo "</div>"; 
   
-  echo "<script type='text/javascript'> 
-  $(document).ready(function() { 
-      $('select').on('change', function() { 
-          $(this).find('option:selected').each(function() { 
-              var name = $(this).attr('value'); 
-              if (name) { 
-                  $('.patient-info').not('.' + name).hide(); 
-                  $('.' + name).show(); 
-              } else { 
-                  $('.patient-info').hide(); 
-              } 
+  // MATT: I just move this to the script file. If it doesn't work, just uncomment it out.
+  // echo "<script type='text/javascript'> 
+  // $(document).ready(function() { 
+  //     $('select').on('change', function() { 
+  //         $(this).find('option:selected').each(function() { 
+  //             var name = $(this).attr('value'); 
+  //             if (name) { 
+  //                 $('.patient-info').not('.' + name).hide(); 
+  //                 $('.' + name).show(); 
+  //             } else { 
+  //                 $('.patient-info').hide(); 
+  //             } 
 
-          }); 
-      }).change(); 
-  }); 
-  </script>";
+  //         }); 
+  //     }).change(); 
+  // }); 
+  // </script>";
 
   ?>
 

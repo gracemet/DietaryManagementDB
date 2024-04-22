@@ -30,6 +30,7 @@ INSERT INTO PATIENT(P_id, Fname, Minit, Lname, Diet) VALUES
 
 
 
+
 # INGREDIENT
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ('Banana', '7');
 INSERT INTO INGREDIENT(Ing_id, In_Stock) VALUES ('Bay Leaf', '3');
@@ -302,8 +303,6 @@ INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 ('Low Sodium', 'Scrambled Eggs');
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
-('Low Sodium', 'Protein Shake');
-INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 ('Low Sodium', 'Minestrone Soup');
 
 # VEGETARIAN
@@ -318,13 +317,13 @@ INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 
 # RENAL
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
-('Normal', 'Greek Salad');
+('Renal', 'Greek Salad');
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
-('Normal', 'Turkey Chili');
+('Renal', 'Turkey Chili');
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 ('Renal', 'Scrambled Eggs');
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
-('Normal', 'Pot Roast');
+('Renal', 'Pot Roast');
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 ('Renal', 'Minestrone Soup');
  

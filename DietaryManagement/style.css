@@ -227,6 +227,7 @@ table th {
 
 }
 
+/* Select CSS */
 #wholeSelection {
     background-color: #1f2d56;
     margin-left: auto;
@@ -272,10 +273,25 @@ table th {
     border-radius: 15px;
     text-align: center;
     top: 50%;
-    transform: translateY(200%);
+    transform: translateY(150%);
 }
 
 #selectDrop {
     border-radius: 15px;
+    height: 25px;
 }
 
+/*  End Select CSS END*/
+
+
+
+/* ID Card CSS */
+.column {
+    margin: 10px;
+    display: inline-grid;
+    max-width: 490px;;
+}
+
+
+
+/* ID Card CSS END */

@@ -17,7 +17,6 @@ Login.php
   <script src="script.js"></script>
   <link id="tab-icon" rel="shortcut icon" type="image/x-icon" href="Images/SpoonFork.png" />
   <!-- <link rel="preload" id="navBarPic" type="image" href="Images/logoAndName.png" /> -->
-
 </head>
 
 <body>
@@ -164,7 +163,7 @@ Login.php
         if (mysqli_num_rows($result) == 0)
             echo "Account doesn't Exist!";
         else {
-            // Else, hide login form and show add pet form
+            // Else, hide login form and show add patient form
             echo '<script type="text/javascript">hideLogin();showForm();</script>';
         }
     }

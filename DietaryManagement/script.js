@@ -24,3 +24,18 @@ $(document).ready(function() {
   function hideLogin() {
     document.getElementById("LoginForm").style.display = "none";
   }
+
+  $(document).ready(function() { 
+    $('select').on('change', function() { 
+        $(this).find('option:selected').each(function() { 
+            var name = $(this).attr('value'); 
+            if (name) { 
+                $('.patient-info').not('.' + name).hide(); 
+                $('.' + name).show(); 
+            } else { 
+                $('.patient-info').hide(); 
+            } 
+
+        }); 
+    }).change(); 
+});
