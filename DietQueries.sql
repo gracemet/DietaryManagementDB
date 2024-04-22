@@ -41,4 +41,7 @@ SELECT FI_Ingid FROM FOOD_INGREDIENT WHERE FI_Fid = "Black Bean Burger";
 UPDATE FOOD SET Prepared = Prepared-1 WHERE F_id = "Ham Sandwich";
 SELECT F_id, Prepared FROM FOOD;
 
+SELECT Fname FROM PATIENT ORDER BY Fname;
 
+SELECT A_id FROM ADDON WHERE
+A_id = ANY (SELECT DA_Aid FROM DIET_ADDON WHERE DA_Dname = "Bariatric");

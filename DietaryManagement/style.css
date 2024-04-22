@@ -81,7 +81,9 @@ body::-webkit-scrollbar {
 }
 
 
-#loginWrapper table, #loginWrapper th, #loginWrapper td{
+#loginWrapper table,
+#loginWrapper th,
+#loginWrapper td {
     border: none;
     background-color: white;
 }
@@ -109,7 +111,7 @@ body::-webkit-scrollbar {
     color: transparent;
 }
 
-.textbox:placeholder-shown ~ .label {
+.textbox:placeholder-shown~.label {
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
@@ -124,7 +126,7 @@ body::-webkit-scrollbar {
     color: #1f2d56;
 }
 
-.textbox:focus + .label {
+.textbox:focus+.label {
     position: absolute;
     top: 0;
     display: block;
@@ -148,26 +150,24 @@ body::-webkit-scrollbar {
     /* this works now after just including it in the 'group' div */
     top: 38%;
     left: 76%;
-  }
+}
 
-  #PatientForm table{
+#PatientForm table {
     margin-left: auto;
     margin-right: auto;
-    text-align:left;
-  }
-
-  #AddPatient, 
-  #AddPatient td, 
-  #AddPatient th
-  {
     text-align: left;
-  }
+}
 
-  #AddPatient td
-  {
+#AddPatient,
+#AddPatient td,
+#AddPatient th {
+    text-align: left;
+}
+
+#AddPatient td {
     padding-top: 5px;
     padding-bottom: 5px;
-  }
+}
 
 /* Login CSS END */
 
@@ -273,6 +273,25 @@ table th {
 .column {
     margin: 10px;
     display: inline-grid;
-    max-width: 490px;;
+    max-width: 490px;
+    ;
 }
+
 /* ID Card CSS END */
+
+/* About Us CSS */
+
+#aboutDiv {
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 10px;
+    border-width: 3px;
+    font-size: larger;
+    width: 25%;
+    border-color:rgb(37, 75, 128);
+    text-align: center;
+}
+
+
