@@ -47,11 +47,9 @@ Menu.php
 
     if(isset($_POST['OrderFood']))
     {
-       
-            $food = $_POST['OrderFood'];
-            $sql = "UPDATE FOOD SET Prepared = Prepared-1 WHERE F_id = '{$food}';";
-            $result = mysqli_query($conn, $sql);
-
+        $food = $_POST['OrderFood'];
+        $sql = "UPDATE FOOD SET Prepared = Prepared-1 WHERE F_id = '{$food}';";
+        $result = mysqli_query($conn, $sql);
     }
 
     $sql = "SELECT F_id, Prepared FROM FOOD WHERE (Prepared>0);";

@@ -27,7 +27,6 @@ Login.php
         <li><a href="menu.php" target="_self">Menu</a></li>
         <li><a href="about.html" target="_self">About Us</a></li>
         <li><a href="login.php" target="_self" style="float:right;">Login</a></li>
-        <!-- <li><a href="index.php" target="_self">Index</a></li> -->
     </ul>
 
     <br> <!-- Nav bar end -->
@@ -52,30 +51,30 @@ Login.php
         </form>
         <form style="display:none;margin: 0 20px;" action="" method="POST" id="PatientForm">
             <h1>Add Patient</h1>
-            <table>
+            <table id="AddPatient" style="width:75%">
                 <tr>
                     <td><label for="fname">Name:</label></td>
-                    <td><input type="text" maxlength="15" id="fname" name="fname" style="width:110px;" required></td>
-                    <td><input type="text" maxlength="1" id="minit" name="minit" style="width:15px;" required></td>
-                    <td><input type="text" maxlength="15" id="lname" name="lname" style="width:110px;" required></td>
+                    <td colspan=2><input type="text" maxlength="15" id="fname" name="fname" style="width:110px;" required>
+                    <input type="text" maxlength="1" id="minit" name="minit" style="width:15px;" required>
+                    <input type="text" maxlength="15" id="lname" name="lname" style="width:110px;" required>
+                </td>
                 </tr>
                 <tr>
                     <td><label for="diet">Diet:</label></td>
                     <td><select id="diet" name="diet">
+                        <option value="Normal">Normal</option>
                         <option value="Bariatric">Bariatric</option>
                         <option value="Cardiac">Cardiac</option>
                         <option value="Low Sodium">Low Sodium</option>
-                        <option value="Normal">Normal</option>
                         <option value="Renal">Renal</option>
                         <option value="Vegetarian">Vegetarian</option>
-                    </select></td>
+                    </select>
+                </td>
                 </tr>
                 <tr>
                     <td><label for="allergies">Dietary Restrictions:</label></td>
-                    <td>
-                    <div class="select-editable">
-                    <input type="text" name="format" value=""/>
-                    <select id="ingredientSelect" onchange="this.nextElementSibling.value=this.value">
+                    <td >
+                    <select id="ingredientSelect" name="ingredientSelect[]" multiple>
                         <option value="">
                         <option value="Banana">Banana</option>
                         <option value="Bay Leaf">Bay Leaf</option>
@@ -127,8 +126,12 @@ Login.php
                         <option value="Worcestershire Sauce">Worcestershire Sauce</option>
                         <option value="Zucchini">Zucchini</option>
                     </select>
-                    <div></td>
+                    </td>
+                    <td>
+                    <form method='POST'><button type='submit' class='bttn' name='AddPatient' >Add Patient</button></form>
+                    </td>
                 </tr>
+            
             </table>
         </form>
     </div>
@@ -152,7 +155,7 @@ Login.php
     }
   
     // If login button is pressed, attempt login
-    if ($_POST['Login']) {
+    if (isset($_POST['Login'])) {
         $username = $_POST["username"];
         $password = $_POST["password"];
 
@@ -166,6 +169,27 @@ Login.php
         else {
             // Else, hide login form and show add patient form
             echo '<script type="text/javascript">hideLogin();showForm();</script>';
+        }
+    }
+    else if(isset($_POST['AddPatient']))
+    {
+        $fname = $_POST['fname'];
+        $minit = $_POST['minit'];
+        $lname = $_POST['lname'];
+        $diet = $_POST['diet'];
+        $allergies = $_POST['ingredientSelect'];
+
+        $sql = "INSERT INTO PATIENT(Fname, Minit, Lname, Diet) VALUES ('{$fname}', '{$minit}', '{$lname}', '{$diet}');";
+        $result = mysqli_query($conn, $sql);
+
+        $sql = "SELECT P_id FROM PATIENT";
+        $result = mysqli_query($conn, $sql);
+        $size = mysqli_num_rows($result);
+
+        foreach($allergies as $value)
+        {
+            $sql = "INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES ({$size}, '{$value}');";
+            $result = mysqli_query($conn, $sql);   
         }
     }
 
