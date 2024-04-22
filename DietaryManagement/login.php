@@ -24,6 +24,7 @@ Login.php
     <ul id="nav">
         <li><a style="padding:2px 2px;" href="index.php" target="_self" fetchpriority="high"><img
                 src="Images/SpoonFork.png" style="height:60px;display:block;filter:brightness(0) invert(1);"></a></li>
+        <li><a href="menu.php" target="_self">Menu</a></li>
         <li><a href="about.html" target="_self">About Us</a></li>
         <li><a href="login.php" target="_self" style="float:right;">Login</a></li>
         <!-- <li><a href="index.php" target="_self">Index</a></li> -->

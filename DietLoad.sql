@@ -172,15 +172,15 @@ INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
 
 # BLACK BEAN BURGER
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-('Cheeseburger', 'Hamburger Bun');
+('Black Bean Burger', 'Hamburger Bun');
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-('Cheeseburger', 'Black Bean');
+('Black Bean Burger', 'Black Bean');
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-('Cheeseburger', 'Worcestershire Sauce');
+('Black Bean Burger', 'Worcestershire Sauce');
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-('Cheeseburger', 'Garlic');
+('Black Bean Burger', 'Garlic');
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
-('Cheeseburger', 'Black Pepper');
+('Black Bean Burger', 'Black Pepper');
 
 # GREEK SALAD
 INSERT INTO FOOD_INGREDIENT(FI_Fid, FI_Ingid) VALUES
