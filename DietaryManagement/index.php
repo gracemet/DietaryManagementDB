@@ -68,7 +68,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     }
 
     echo "<br><br>Meal Options: ";
-    $sql = "SELECT F_id FROM FOOD WHERE  (Prepared>1) 
+    $sql = "SELECT F_id FROM FOOD WHERE  (Prepared>0) 
     AND F_id = ANY (SELECT DF_Fid FROM DIET_FOOD WHERE DF_Dname = '{$diet}') 
     AND NOT F_id = ANY (SELECT FI_Fid FROM FOOD_INGREDIENT WHERE FI_Ingid = ANY (SELECT PI_Ingid FROM PATIENT_INGREDIENT WHERE PI_Pid = '{$pid}'));";
     $result = mysqli_query($conn, $sql);

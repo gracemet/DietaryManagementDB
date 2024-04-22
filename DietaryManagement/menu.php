@@ -45,7 +45,16 @@ Menu.php
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT F_id FROM FOOD WHERE (Prepared>1);";
+    if(isset($_POST['OrderFood']))
+    {
+       
+            $food = $_POST['OrderFood'];
+            $sql = "UPDATE FOOD SET Prepared = Prepared-1 WHERE F_id = '{$food}';";
+            $result = mysqli_query($conn, $sql);
+
+    }
+
+    $sql = "SELECT F_id, Prepared FROM FOOD WHERE (Prepared>0);";
     $result = mysqli_query($conn, $sql);
     $size = mysqli_num_rows($result);
 
@@ -54,34 +63,29 @@ Menu.php
 
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        foreach ($row as $value) {
-            if($value == null)
-                echo "<td>NULL</td>";
-            else {
-                echo "<td style='text-align:left;padding:10px;'><div class='column'><b>" . $value . "</b>";
+        echo "<td style='text-align:left;padding:10px;'><div class='column'><b>" . $row['F_id'] . "</b>";
+        echo "Quantity: ". $row['Prepared'];
+        echo "<br>Ingredients: ";
 
-                echo "Ingredients: ";
-                $sql = "SELECT FI_Ingid FROM FOOD_INGREDIENT WHERE FI_Fid = '{$value}';";
-                $res = mysqli_query($conn, $sql);
-                $size = mysqli_num_rows($res);
-                $aList = [];
-                while($r2 = mysqli_fetch_assoc($res))
-                {
-                array_push($aList, $r2["FI_Ingid"]);
-                }
-
-                foreach($aList as $i => $x)
-                {
-                if($size != $i+1)
-                    echo $x. ", ";
-                else
-                    echo $x;
-                }
-                echo "</div>";
-
-                echo "<div class='column' style='float:right;'><button type='submit' class='bttn' name='OrderFood' value='{$value}' style='float:right;'>Order!</button></div></td>";
-            }
+        // List of ingredients is displayed
+        $sql = "SELECT FI_Ingid FROM FOOD_INGREDIENT WHERE FI_Fid = '{$row['F_id']}';";
+        $res = mysqli_query($conn, $sql);
+        $size = mysqli_num_rows($res);
+        $aList = [];
+        while($r2 = mysqli_fetch_assoc($res)) {
+            array_push($aList, $r2["FI_Ingid"]);
         }
+
+        foreach($aList as $i => $x) {
+            if($size != $i+1)
+                echo $x. ", ";
+            else
+                echo $x;
+        }
+        echo "</div>";
+
+        // Order! Button HTML
+        echo "<div class='column' style='float:right;'><form method='POST'><button type='submit' class='bttn' name='OrderFood' value='{$row['F_id']}' style='float:right;'>Order!</button></form></div></td>";
         echo "</tr>";
     }
 

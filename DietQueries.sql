@@ -28,7 +28,7 @@ ORDER BY Food_Name, Ingredient;
 
 # Shows what food items are available to a patient depending on their diet and allergies.
 # First select stmnt gets all food ids that are prepared
-SELECT F_id FROM FOOD WHERE  (Prepared>1) 
+SELECT F_id FROM FOOD WHERE  (Prepared>0) 
 # AND it further filters any food ids that fit the diet
 AND F_id = ANY (SELECT DF_Fid FROM DIET_FOOD WHERE DF_Dname = "Low Sodium") 
 # As well as excluding any food ids that contain any food that contains any ingredients that patient is allergic to.
@@ -36,5 +36,9 @@ AND NOT F_id = ANY (SELECT FI_Fid FROM FOOD_INGREDIENT WHERE FI_Ingid = ANY (SEL
 
 # Shows what foods have what ingredients
 SELECT FI_Ingid FROM FOOD_INGREDIENT WHERE FI_Fid = "Black Bean Burger";
+
+# Removes 1 food item of that food.
+UPDATE FOOD SET Prepared = Prepared-1 WHERE F_id = "Ham Sandwich";
+SELECT F_id, Prepared FROM FOOD;
 
 
