@@ -1,0 +1,297 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    user-select: none;
+
+
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: white;
+    color: black;
+
+    -ms-overflow-style: none;
+    /* Hiding scrollbar for Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Hiding scrollbar for Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    /* Hiding scrollbar for Safari/Chrome */
+    display: none;
+}
+
+
+/* Nav Bar CSS */
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #003459;
+    position: relative;
+    width: 100%;
+    font-size: 34px;
+    display: block;
+    text-align: center;
+    min-width: 1080px;
+}
+
+#nav li {
+    width: auto;
+    /* display: inline-block; */
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    /* text-shadow: #FFFFFF 1px 0 10px; */
+
+}
+
+#nav li a {
+    display: block;
+    color: #FFFFFF;
+    padding: 14px 14px;
+    text-decoration: none;
+    /* text-shadow: #FFFFFF 1px 0 10px; */
+}
+
+#nav li a:hover {
+    border-radius: 15px;
+    background-color: rgba(240, 248, 255, .2);
+    text-decoration: underline;
+}
+
+#nav li:last-child {
+    float: right;
+}
+
+/* Nav Bar CSS END */
+
+/* Login CSS */
+#loginWrapper {
+    background-color: white;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #003459;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+#loginWrapper table,
+#loginWrapper th,
+#loginWrapper td {
+    border: none;
+    background-color: white;
+}
+
+.group {
+    position: relative;
+    padding: 20px 25% 20px;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.textbox {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #1f2d56;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #1f2d56;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.textbox::placeholder {
+    color: transparent;
+}
+
+.textbox:placeholder-shown~.label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #1f2d56;
+}
+
+.textbox:focus+.label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #045691;
+    font-weight: 700;
+}
+
+.textbox:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    color: #012f3b;
+    border-image: linear-gradient(to right, #152669, #43b5df);
+    border-image-slice: 1;
+}
+
+#togglePass {
+    position: absolute;
+    /* this works now after just including it in the 'group' div */
+    top: 38%;
+    left: 76%;
+}
+
+#PatientForm table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#AddPatient,
+#AddPatient td,
+#AddPatient th {
+    text-align: left;
+}
+
+#AddPatient td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Login CSS END */
+
+
+table {
+    width: 50%;
+}
+
+table,
+table th,
+table td {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: rgb(37, 75, 128);
+    background-color: lightblue;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table th {
+    background-color: rgb(37, 75, 128);
+    color: white;
+}
+
+/* Button CSS */
+.bttn {
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border-style: none;
+    line-height: 20px;
+    padding: 10px 16px;
+    text-align: center;
+    vertical-align: baseline;
+    margin: 10px;
+
+    background-color: #1f2d56;
+    color: white;
+
+}
+
+/* Select CSS */
+#wholeSelection {
+    background-color: #1f2d56;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    display: block;
+}
+
+#leftSelection {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 200px;
+    border-radius: 15px;
+    text-align: center;
+    float: left;
+}
+
+#leftSelectDiv {
+    text-align: center;
+    top: 50%;
+    transform: translateY(20%);
+    color: white;
+}
+
+#rightSelection {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 200px;
+    border-radius: 15px;
+    text-align: center;
+    display: inline-flexbox;
+    float: right;
+}
+
+#divSelection {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(150%);
+}
+
+#selectDrop {
+    border-radius: 15px;
+    height: 25px;
+}
+
+/*  End Select CSS END*/
+
+
+
+/* ID Card CSS */
+.column {
+    margin: 10px;
+    display: inline-grid;
+    max-width: 490px;
+    ;
+}
+
+/* ID Card CSS END */
+
+/* About Us CSS */
+
+#aboutDiv {
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 10px;
+    border-width: 3px;
+    font-size: larger;
+    width: 25%;
+    border-color:rgb(37, 75, 128);
+    text-align: center;
+}
+
+
