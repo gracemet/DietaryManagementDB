@@ -1,6 +1,6 @@
 # DietaryManagementDB
 
-Our project seeks to provide a database that tracks the dietary needs and restrictions of patients in a hospital, and also tracks the inventory of food and what is compatible with the patients.The project aims to create an intuitive design for managing nutrition related dietary needs through the use of a SQL database. The database would include information related but not limited to patient allergies, recommended serving sizes, calorie amounts, and any other relevant information concerning the meals they receive when under hospital care in order to maximize the quality of service that can be provided.
+Our project seeks to provide a database that tracks the dietary needs and restrictions of patients in a hospital, and also tracks the inventory of food and what is compatible with the patients.The project aims to create an intuitive design for managing nutrition related dietary needs through the use of a SQL database. The database would include information related but not limited to patient allergies, recommended menu options, ingredients in specific diets, and any other relevant information concerning the meals they receive when under hospital care in order to maximize the quality of service that can be provided.
 
 To run the local database website you must complete the following:
 
