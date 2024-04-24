@@ -14,13 +14,13 @@ To run the local database website you must complete the following:
 
 3. Upon opening XAMPP, you should see a window labeled "XAMPP Control Panel". In that window, you should see two Modules labeled Apache and MySQL. Press the start buttons to the right of those Modules.
 
-4. Then, using MySQL Workbench, under MySQL Connections, press the Local instance button. From there, execute DietSchema.sql, DietLoad.sql, Login.sql in that order.
+4. Then, using MySQL Workbench, under MySQL Connections, press the Local instance button. Execute DietSchema.sql, DietLoad.sql, Login.sql in that order.
 
 5. From there, copy the folder to the following location in your C drive:
 
     C:\xampp\htdocs\
 
-6. Then in your Chrome browser, simply enter the following into the address bar:
+6. In your Chrome browser, simply enter the following into the address bar:
     
     http://localhost/HW6/index.php
     
