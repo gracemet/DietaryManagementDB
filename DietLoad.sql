@@ -311,8 +311,6 @@ INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 ('Vegetarian', 'Greek Salad');
 INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
-('Vegetarian', 'Scrambled Eggs');
-INSERT INTO DIET_FOOD(DF_Dname, DF_Fid) VALUES
 ('Vegetarian', 'Minestrone Soup');
 
 # RENAL
