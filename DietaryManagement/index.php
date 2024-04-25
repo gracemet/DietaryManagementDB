@@ -34,12 +34,12 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
 
   <?php
 
-  function generateIDCard($name) {
+  function generateIDCard($pid)
+  {
     $conn = $GLOBALS['conn'];
-    $sql = "SELECT P_id, Fname, Minit, Lname, Diet FROM PATIENT WHERE Fname='{$name}'";
+    $sql = "SELECT P_id, Fname, Minit, Lname, Diet FROM PATIENT WHERE P_id='{$pid}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $pid = $row['P_id'];
     $diet = $row['Diet'];
     echo "<div class='column'> <b>{$row['Fname']} {$row['Minit']}. {$row['Lname']}</b>";
 
@@ -49,15 +49,13 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
 
     echo "<br>Allergies: ";
     $aList = [];
-    while($row = mysqli_fetch_assoc($result))
-    {
+    while ($row = mysqli_fetch_assoc($result)) {
       array_push($aList, $row["PI_Ingid"]);
     }
 
-    foreach($aList as $i => $x)
-    {
-      if($size != $i+1)
-        echo $x. ", ";
+    foreach ($aList as $i => $x) {
+      if ($size != $i + 1)
+        echo $x . ", ";
       else
         echo $x;
     }
@@ -69,15 +67,13 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     $result = mysqli_query($conn, $sql);
     $size = mysqli_num_rows($result);
     $aList = [];
-    while($row = mysqli_fetch_assoc($result))
-    {
+    while ($row = mysqli_fetch_assoc($result)) {
       array_push($aList, $row["F_id"]);
     }
 
-    foreach($aList as $i => $x)
-    {
-      if($size != $i+1)
-        echo $x. ", ";
+    foreach ($aList as $i => $x) {
+      if ($size != $i + 1)
+        echo $x . ", ";
       else
         echo $x;
     }
@@ -85,8 +81,7 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     echo "<br>Add Ons: ";
     $sql = "SELECT A_id FROM ADDON WHERE
     A_id = ANY (SELECT DA_Aid FROM DIET_ADDON WHERE DA_Dname = '{$diet}');";
-    if($diet == "Normal" || $diet == "Vegetarian")
-    {
+    if ($diet == "Normal" || $diet == "Vegetarian") {
       $sql = "SELECT A_id FROM ADDON;";
     }
 
@@ -95,19 +90,16 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     $bList = [];
 
 
-    while($row = mysqli_fetch_assoc($result))
-    {
+    while ($row = mysqli_fetch_assoc($result)) {
       array_push($bList, $row["A_id"]);
     }
 
-    foreach($bList as $i => $x)
-    {
-      if($size != $i+1)
-        echo $x. ", ";
+    foreach ($bList as $i => $x) {
+      if ($size != $i + 1)
+        echo $x . ", ";
       else
         echo $x;
     }
-
 
     echo "</div>";
     echo "<div class='column' style='float:right;'>
@@ -116,7 +108,6 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     </div>";
 
   }
-
 
   $servername = "localhost";
   $user = "root";
@@ -129,9 +120,9 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT Fname FROM PATIENT ORDER BY Fname;";
+  $sql = "SELECT Fname, P_id FROM PATIENT ORDER BY Fname;";
   $result = mysqli_query($conn, $sql);
-  
+
   echo "<div id='wholeSelection'> <div id='leftSelection'> <div id='leftSelectDiv'>";
   echo "<h1>PATIENT:</h1>";
   echo "</div> </div>";
@@ -143,17 +134,16 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
   echo "<option value=''>--SELECTPATIENT--</option>";
   $columns = mysqli_query($conn, $sql);
   while ($row = mysqli_fetch_assoc($columns)) {
-           foreach ($row as $value)
-           echo "<option value='$value'>$value</option>";
-       }
+    echo "<option value='{$row['P_id']}'>{$row['Fname']}</option>";
+  }
+  
   echo "</select>";
   echo "</div> </div> </div>";
-
   echo "<div>";
+
   $columns = mysqli_query($conn, $sql);
   while ($row = mysqli_fetch_assoc($columns)) {
-    foreach ($row as $value) {
-      echo "<div class='patient-info $value' 
+    echo "<div class='patient-info {$row['P_id']}' 
       style='padding: 30px;  
            margin-top: 30px; 
            width: 40%;
@@ -164,32 +154,13 @@ Description: Dietary Management Database App used by Doctors, Nurses, and
            background:lightblue;
            display:none;
            '
-           >"; 
-      generateIDCard($value);
-
-      echo "</div>";
-    }
-}   
-  echo "</div>"; 
-  
-  // MATT: I just move this to the script file. If it doesn't work, just uncomment it out.
-  // echo "<script type='text/javascript'> 
-    // $(document).ready(function() { 
-    //     $('select').on('change', function() {
-    //         $(this).find('option:selected').each(function() {
-    //             var name = $(this).attr('value');
-    //             if (name) {
-    //                 $('.patient-info').not('.' + name).hide();
-    //                 $('.' + name).show();
-    //             } else {
-    //                 $('.patient-info').hide();
-    //             }
-
-    //         });
-    //     }).change();
-    // });
-    // </script>";
+           >";
+    generateIDCard($row['P_id']);
+    echo "</div>";
+  }
+  echo "</div>";
 
   ?>
 </body>
+
 </html>

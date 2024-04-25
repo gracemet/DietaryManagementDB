@@ -172,7 +172,8 @@ Login.php
         $minit = $_POST['minit'];
         $lname = $_POST['lname'];
         $diet = $_POST['diet'];
-        $allergies = $_POST['ingredientSelect'];
+        if(!empty($_POST['ingredientSelect']))
+            $allergies = $_POST['ingredientSelect'];
 
         $sql = "INSERT INTO PATIENT(Fname, Minit, Lname, Diet) VALUES ('{$fname}', '{$minit}', '{$lname}', '{$diet}');";
         $result = mysqli_query($conn, $sql);
@@ -181,12 +182,15 @@ Login.php
         $result = mysqli_query($conn, $sql);
         $size = mysqli_num_rows($result);
 
-        foreach ($allergies as $value) {
-            $sql = "INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES ({$size}, '{$value}');";
-            $result = mysqli_query($conn, $sql);
+        if (!empty($allergies)) {
+            foreach ($allergies as $value) {
+                $sql = "INSERT INTO PATIENT_INGREDIENT(PI_Pid, PI_Ingid) VALUES ({$size}, '{$value}');";
+                $result = mysqli_query($conn, $sql);
+            }
         }
     }
     ?>
 
 </body>
+
 </html>
